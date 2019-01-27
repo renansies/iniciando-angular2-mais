@@ -4,12 +4,14 @@
         <tr>
             <th>Nome</th>
             <th>Salário</th>
+            <th>Bonus</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees" >
+        <tr *ngFor="let employee of employeeService.employees" >
             <td>{{ employee.name }}</td>
             <td>{{ employee.salary }}</td>
+            <td>{{ employee.bonus }}</td>
         </tr>
     </tbody>
 </table>
