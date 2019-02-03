@@ -17,6 +17,7 @@
                     <th>Nome</th>
                     <th>Salário</th>
                     <th>Bonus</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,9 +25,15 @@
                     <td>{{ employee.name }}</td>
                     <td salaryColor="{{ employee.salary }}">{{ employee.salary }}</td>
                     <td>{{ employee.bonus }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="showEditModal(employee)">
+                            Editar
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>  
+<employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
+<employee-edit-modal [employee]="employeeToEdit" (onSubmit)="onEditEmployee($event)"></employee-edit-modal>
