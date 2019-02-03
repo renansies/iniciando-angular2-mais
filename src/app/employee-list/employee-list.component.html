@@ -29,6 +29,9 @@
                         <button type="button" class="btn btn-primary" (click)="showEditModal(employee)">
                             Editar
                         </button>
+                        <button type="button" class="btn btn-primary" (click)="showDeleteModal(employee)">
+                            Excluir
+                        </button>
                     </td>
                 </tr>
             </tbody>
@@ -37,3 +40,4 @@
 </div>
 <employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
 <employee-edit-modal [employee]="employeeToEdit" (onSubmit)="onEditEmployee($event)"></employee-edit-modal>
+<employee-delete-modal [employee]="employeeToDelete" (onSubmit)="onDeleteEmployee($event)"></employee-delete-modal>
