@@ -22,8 +22,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeeService.employees" >
-                    <td>{{ employee.name }}</td>
-                    <td [salaryColor]="employee.salary">{{ employee.salary }}</td>
+                    <td>{{ employee.name | uppercase }}</td>
+                    <td [salaryColor]="employee.salary">{{ employee.salary | myCurrency}}</td>
                     <td>{{ employee.bonus }}</td>
                     <td>
                         <button type="button" class="btn btn-primary" (click)="showEditModal(employee)">
