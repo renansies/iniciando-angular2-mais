@@ -1,0 +1,23 @@
+<form (submit)="addEmployee()">
+  <modal>
+    <h5 modal-title>Adicionar Empregado</h5>
+    <div modal-body>
+      <div class="form-group row">
+        <label>Nome: </label>
+        <input class="form-control" type="text" name="name" [(ngModel)]="employee.name"><br>
+      </div>
+      <div class="form-group row">
+        <label>Salário: </label>
+        <input class="form-control" type="text" name="salary" [(ngModel)]="employee.salary"><br>
+      </div>
+      <div class="form-group row" [hidden]="employee.salary >= 1000">
+        <label>Bonus: </label>
+        <input class="form-control" type="text" name="bonus" [(ngModel)]="employee.bonus"><br>
+      </div>
+    </div>
+    <div modal-footer>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </modal>
+</form>
