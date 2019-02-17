@@ -26,6 +26,17 @@ export class EmployeeNewModalComponent extends Modalable implements OnInit {
   }
 
   ngOnInit() {
+    this.modalComponent.onHide.subscribe(event => {
+      console.log(event);
+    })
+  }
+
+  onClose(event) {
+    console.log(event);
+  }
+
+  onOpen(event) {
+    console.log(event);
   }
 
   addEmployee() {
