@@ -14,12 +14,10 @@ export class Modalable implements OnInit{
   
   ngOnInit(): void {
     this.modalComponent.onHide.subscribe(event => {
-      console.log(event);
       this.onHide.emit(event);
     })
 
     this.modalComponent.onShow.subscribe(event => {
-      console.log(event);
       this.onShow.emit(event);
     })
   }

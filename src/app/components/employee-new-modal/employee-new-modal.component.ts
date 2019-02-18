@@ -31,7 +31,6 @@ export class EmployeeNewModalComponent extends Modalable implements OnInit {
   ngOnInit() {
     super.ngOnInit();
     this.onShow.subscribe(() => {
-      console.log(this.inputName);
       this.inputName.nativeElement.focus();
     });
   }

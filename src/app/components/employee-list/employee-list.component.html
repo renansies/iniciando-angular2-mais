@@ -22,22 +22,27 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeeService.employees" >
-                    <td>{{ employee.name | uppercase }}</td>
+                    <td>
+                        <a href="javascript:void(0);" (click)="showDetailModal(employee)">
+                            {{ employee.name | uppercase }}
+                        </a>
+                    </td>
                     <td [salaryColor]="employee.salary">{{ employee.salary | myCurrency}}</td>
                     <td>{{ employee.bonus }}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" (click)="showEditModal(employee)">
+                        <a href="javascript:void(0);" (click)="showEditModal(employee)">
                             Editar
-                        </button>
-                        <button type="button" class="btn btn-primary" (click)="showDeleteModal(employee)">
+                        </a> | 
+                        <a href="javascript:void(0);" (click)="showDeleteModal(employee)">
                             Excluir
-                        </button>
+                        </a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<employee-detail-modal [employee]="employeeToDetail"></employee-detail-modal>
 <employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
 <employee-edit-modal [employee]="employeeToEdit" (onSubmit)="onEditEmployee($event)"></employee-edit-modal>
 <employee-delete-modal [employee]="employeeToDelete" (onSubmit)="onDeleteEmployee($event)"></employee-delete-modal>

@@ -3,6 +3,7 @@ import { Employee, EmployeeService } from '../../services/employee.service';
 import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
 import { EmployeeEditModalComponent } from '../employee-edit-modal/employee-edit-modal.component';
 import { EmployeeDeleteModalComponent } from '../employee-delete-modal/employee-delete-modal.component';
+import { EmployeeDetailModalComponent } from '../employee-detail-modal/employee-detail-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -15,6 +16,8 @@ export class EmployeeListComponent implements OnInit {
   showMessageSuccess = false;
   employeeToEdit: Employee;
   employeeToDelete: Employee;
+  employeeToDetail: Employee;
+  data = '2019-02-16';
 
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
@@ -25,6 +28,9 @@ export class EmployeeListComponent implements OnInit {
   @ViewChild(EmployeeDeleteModalComponent)
   employeeDeleteModal: EmployeeDeleteModalComponent;
   
+  @ViewChild(EmployeeDetailModalComponent)
+  employeeDetailModal: EmployeeDetailModalComponent;
+  
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -32,6 +38,11 @@ export class EmployeeListComponent implements OnInit {
 
   showNewModal(){
     this.employeeNewModal.show();
+  }
+
+  showDetailModal(employee: Employee) {
+    this.employeeToDetail = employee;
+    this.employeeDetailModal.show();
   }
 
   showEditModal(employee: Employee){
